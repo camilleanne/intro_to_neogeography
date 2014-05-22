@@ -298,6 +298,45 @@ Leaflet/Mapbox.js</div>
 
 <div><img src="img/simple_map.png"></div>
 
+<div><span class='code'>
+  var geojson = [
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-77.03238901390978,38.913188059745586]
+    },
+    "properties": {
+      "title": "Mapbox DC",
+      "description": "1714 14th St NW, Washington DC",
+      "marker-color": "#fc4353",
+      "marker-size": "large",
+      "marker-symbol": "monument"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.414, 37.776]
+    },
+    "properties": {
+      "title": "Mapbox SF",
+      "description": "155 9th St, San Francisco",
+      "marker-color": "#fc4353",
+      "marker-size": "large",
+      "marker-symbol": "harbor"
+    }
+  }
+];
+
+L.mapbox.map('map', 'examples.map-i86nkdio')
+  .setView([37.8, -96], 4)
+  .featureLayer.setGeoJSON(geojson);
+</span></div>
+
+<div><img src='img/mapboxjs.png'></div>
+
 <div>of course, wrangling data is the hardest part</div>
 <div>We really want everything to be <em>geojson</em>, right?</div>
 <div>got shapefiles? <br>(e.g. a bucket of <em>.shp</em>, <em>.prj</em>, <em>.shx</em>, <em>.dbf</em> files?)</div>
@@ -315,8 +354,8 @@ try <em>togeojson</em><br>
 <div><span class='code'> 
   var layer = omnivore.gpx('a.gpx').addTo(map);
   </span></div>
-
-
-
+<div><a href='http://localhost:8000/moves_cycling.html'>cycling map</a></div>
+<div><img src="img/cycle_map.png"> </div>
+<div><a href='https://www.mapbox.com/data/'>data as mbtiles</a></div>
 
 
