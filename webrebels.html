@@ -136,10 +136,11 @@ window.onload = function() {
 </script></head>
 <body>
 
-<div><h2>Geography for Web Maps: </h2><br>The Good, The Bad, and the Stuff You Can Forget </div>
+<div><em class='pink'>Geography for Web Maps</em> </div>
+<div>The Good, The Bad, and the Stuff You Can Forget</div>
 <div>aka, <br>Intro to Neogeography</div>
-<div><h2>I am Camille. </h2><br> <em> @fulgenteft</em>
-<br> These slides are here: ___-</div>
+<div><h2>I am Camille. </h2><br> <em> @fulgenteft</em></div>
+<div> These slides are here: <em class='pink'>___</em></div>
 <div>I make stuff at <em>@mapbox</em></div>
 <div>We make software and tools for people to make beautiful custom maps for web + mobile</div>
 <!--SHOW THREE SLIDES OF IMAGES -->
@@ -160,11 +161,11 @@ window.onload = function() {
 <div><img src='img/smart_directions.jpg'></div>
 <div><img src="img/gis_tmcw.jpg"></div>
 <div>I am going to teach you all how to be <em>neogeographers</em></div>
-<div><em>geodata</em> <br> <em class='pink'>what to do with the data</em> <br> <em>tools! </em><br> </div>
+<div>-<em>geodata</em> <br> -<em class='pink'>what to do with the data</em> <br> -<em>tools! </em><br> </div>
 <div>What is a web map?</div>
 <div>It's a map in the browser</div>
 <div><img src="img/slippy.gif">slippy map</div>
-<div><img src="img/pin_string.jpg">base layer + data/content/feature layers</div>
+<div><img src="img/pin_string.jpg"><em>base layer</em> + <em class='pink'>data/content/feature layers</em></div>
 <div><img src="img/vector_types.png"></div>
 <div><img src='img/maptime_geojson.png'></div>
 <div>
@@ -176,8 +177,7 @@ window.onload = function() {
 
 <div>[ -122.7324524, 37.9023387 ], [ -122.7324012, 37.9022282 ], [ -122.7323451, 37.9021191 ], [ -122.7322844, 37.9020117 ], [ -122.732219, 37.9019059 ], [ -122.732149, 37.9018021 ], [ -122.7320746, 37.9017002 ], [ -122.7312819, 37.9006205 ], [ -122.731242, 37.9005806 ], [ -122.7312004, 37.9005417 ], [ -122.7311572, 37.900504 ], [ -122.7311124, 37.9004675 ], [ -122.731066, 37.9004322 ], [ -122.7310181, 37.9003982 ], [ -122.7309688, 37.9003655 ], [ -122.7309181, 37.9003341 ], [ -122.7308661, 37.9003042 ], [ -122.7308128, 37.9002756 ], [ -122.7307584, 37.9002484 ], [ -122.7307028, 37.9002229 ], [ -122.7306461, 37.9001988 ], [ -122.7305885, 37.9001763 ], [ -122.7305299, 37.9001553 ], [ -122.7304704, 37.9001359 ], [ -122.7304102, 37.9001181 ], [ -122.7303492, 37.9001019 ], [ -122.7302875, 37.9000875 ], [ -122.7136174, 37.8964147 ], [ -122.7127163, 37.8996543 ], [ -122.7127335, 37.8996637 ], [ -122.7129412, 37.8997974 ], [ -122.7133378, 37.9000575 ], [ -122.7134057, 37.9001333 ], [ -122.712969, 37.9003811 ], [ -122.7039721, 37.9054847 ]</div>
 
-<div>Latitude and Longitude</div>
-<div>This isn't standardized.<br>
+<div>Coordinate order isn't standardized.<br>
 It's terrible</div>
 <div>Thankfully, we've done away with degrees and points in web mapping </div>
 <div><em class='strike-thru'>38° 12'</em><br> for 
@@ -186,10 +186,15 @@ It's terrible</div>
 <div>Longitude goes East to West!<br> it's <em class='pink'>180</em> to <em class='pink'>0</em> to <em class='pink'>-180</em> <br> (aka, the long way)</div>
 <div>(Lng, Lat) === (x, y)</div>
 
-<div>but wait, isn't San Francisco at <em class='pink'>[37.5, -122.7]</em>?</div>
+<div>but wait, if it's (x, y), isn't San Francisco at <em class='pink'>[37.5, -122.7]</em>?</div>
 
-<div>Use <em>geojson</em></div>
-<div>Or... <em>topojson</em> <br><span class='code'> npm install -g topojson</span></div>
+<div>Yes. Just use <em>geojson</em></div>
+<div>GeoJSON supports the following geometry types: <span class='code'>Point, LineString, Polygon, MultiPoint, MultiLineString,</span> and <span class='code'>MultiPolygon</span>. Lists of geometries are represented by a <span class='code'>GeometryCollection</span>. Geometries with additional properties are <span class='code'>Feature objects</span>. And lists of features are represented by a <span class='code'>FeatureCollection.</span></div>
+<div>it's <em>json</em>, but with more stuff, <em class='pink'>geo</em> stuff.</div>
+<div>Or <em>topojson</em> <br><span class='code'> npm install -g topojson</span></div>
+<div><img src='img/topology.png'><em class='pink'>topology!</em></div>
+<div><img src='img/so_topojson.png'></div>
+<div>Just use <em>geojson</em></div>
 <div><img src="img/github.png"></div>
 <div><img src="img/null_island.jpg">Quick trip to Null Island</div>
 <div><img src="img/nullisland.png"> (0, 0)</div>
@@ -199,11 +204,11 @@ It's terrible</div>
 
 <div><img src="img/pinterest.png"></div>
 <div><img src='img/osm_busy.png'></div>
-<div>1: Commit GeoJSON to Github </div>
+<div><em class='pink'>1:</em> Commit GeoJSON to Github </div>
 <div><img src="img/github.png"></div>
-<div> 2: Mapbox.com -> Editor -> Drag and drop GeoJSON </div>
+<div> <em class='pink'>2:</em> Mapbox.com <em>-></em> Editor <em>-></em> Drag and drop GeoJSON </div>
 <div><img src="img/editor.gif"></div>
-<div>3: Leaflet.js or Mapbox.js</div>
+<div><em class='pink'>3:</em> Leaflet.js or Mapbox.js</div>
 <div><img src="img/pinterest.png"></div>
 <div><img src='img/tilemill.png'></div>
 <div><img src='img/tm2.png'></div>
@@ -211,7 +216,7 @@ It's terrible</div>
 <div><a href='http://localhost:3000'>tm2</a></div>
 <div>but why do I need an editor like tm2?</div>
 
-<div><img src='img/mapquest.jpg'/> <span class='invert'>the first web maps were pretty static</span> </div>
+<div><img src='img/mapquest.jpg'/> <span class='blue'>the first web maps were pretty static</span> </div>
 <div>the tile: <img class='tilelarge' src='img/tile.png'></div>
 <div>a 256 x 256 square of data <br> <img class='tilelarge' src='img/tile.png'><br> can be a raster (typically png) or vector</div>
 <div>zoom 0: <img class='tilelarge' src='img/tileworld.png'></div>
