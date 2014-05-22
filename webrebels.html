@@ -160,45 +160,13 @@ window.onload = function() {
 <div><img src='img/smart_directions.jpg'></div>
 <div><img src="img/gis_tmcw.jpg"></div>
 <div>I am going to teach you all how to be <em>neogeographers</em></div>
-<div>geodata <br> what to do with the data <br> tools! <br> </div>
+<div><em>geodata</em> <br> <em class='pink'>what to do with the data</em> <br> <em>tools! </em><br> </div>
 <div>What is a web map?</div>
 <div>It's a map in the browser</div>
 <div><img src="img/slippy.gif">slippy map</div>
 <div><img src="img/pin_string.jpg">base layer + data/content/feature layers</div>
 <div><img src="img/vector_types.png"></div>
-<div>
-  {"type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "MaptimeSF",
-        "twitter": "maptimesf",
-        "contact": "Beth Schechter | @bethschechter Alan McConchie | @mappingmashups Camille Teicheira | @fulgenteft"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.45258331298828,
-          37.753615462062704
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "MaptimePDX",
-        "twitter": "maptimepdx",
-        "contact": "Lyzi Diamond (PDX) | @lyzidiamond Rafa Gutierrez (PDX) | @geografa Matt Sayler (PDX) | @MattSayler"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.67608642578126,
-          45.52078170816289
-        ]
-      }
-    }</div>
+<div><img src='img/maptime_geojson.png'></div>
 <div>
 { "type": "Feature", "properties": { "SCALERANK": 2, "NATSCALE": 200, "LABELRANK": 7, "FEATURECLA": "Admin-0 capital", "NAME": "Oslo", "NAMEPAR": null, "NAMEALT": null, "DIFFASCII": 0, "NAMEASCII": "Oslo", "ADM0CAP": 1.000000, "CAPALT": 0.000000, "CAPIN": null, "WORLDCITY": 1.000000, "MEGACITY": 1, "SOV0NAME": "Kingdom of Norway", "SOV_A3": "NOR", "ADM0NAME": "Norway", "ADM0_A3": "NOR", <em>"ADM1NAME": "Oslo"</em>, "ISO_A2": "NO", "NOTE": null, "LATITUDE": 59.916690, "LONGITUDE": 10.749979, "CHANGED": 4.000000, "NAMEDIFF": 0, "DIFFNOTE": "Changed scale rank.", "POP_MAX": 835000, "POP_MIN": 580000, "POP_OTHER": 701804, "RANK_MAX": 11, "RANK_MIN": 11, "GEONAMEID": 3143244.000000, "MEGANAME": "Oslo", "LS_NAME": "Oslo", "LS_MATCH": 1, "CHECKME": 0, "MAX_POP10": 731563.000000, "MAX_POP20": 731563.000000, "MAX_POP50": 762374.000000, "MAX_POP300": 762374.000000, "MAX_POP310": 0.000000, "MAX_NATSCA": 100.000000, "MIN_AREAKM": 329.000000, "MAX_AREAKM": 362.000000, "MIN_AREAMI": 127.000000, "MAX_AREAMI": 140.000000, "MIN_PERKM": 340.000000, "MAX_PERKM": 390.000000, "MIN_PERMI": 211.000000, "MAX_PERMI": 243.000000, "MIN_BBXMIN": 10.333333, "MAX_BBXMIN": 10.440355, "MIN_BBXMAX": 11.091667, "MAX_BBXMAX": 11.091667, "MIN_BBYMIN": 59.708333, "MAX_BBYMIN": 59.708333, "MIN_BBYMAX": 60.066667, "MAX_BBYMAX": 60.066667, "MEAN_BBXC": 10.756508, "MEAN_BBYC": 59.906118, "COMPARE": 0, "GN_ASCII": "Oslo", "FEATURE_CL": "P", "FEATURE_CO": "PPLC", "ADMIN1_COD": 12.000000, "GN_POP": 580000.000000, "ELEVATION": 0.000000, "GTOPO30": 11.000000, "TIMEZONE": "Europe\/Oslo", "GEONAMESNO": "GeoNames match general.", "UN_FID": 397, "UN_ADM0": "Norway", "UN_LAT": 59.930000, "UN_LONG": 10.710000, "POP1950": 468.000000, "POP1955": 533.000000, "POP1960": 578.000000, "POP1965": 610.000000, "POP1970": 643.000000, "POP1975": 644.000000, "POP1980": 643.000000, "POP1985": 662.000000, "POP1990": 684.000000, "POP1995": 729.000000, "POP2000": 774.000000, "POP2005": 816.000000, "POP2010": 835.000000, "POP2015": 858.000000, "POP2020": 885.000000, "POP2025": 909.000000, "POP2050": 936.000000, "CITYALT": null }, <em>"geometry": { "type": "Point", "coordinates": [ 10.748033347372314, 59.918636145001869 ] }</em> }
 </div>
@@ -218,7 +186,7 @@ It's terrible</div>
 <div>Longitude goes East to West!<br> it's <em class='pink'>180</em> to <em class='pink'>0</em> to <em class='pink'>-180</em> <br> (aka, the long way)</div>
 <div>(Lng, Lat) === (x, y)</div>
 
-<div>but wait, isn't San Francisco at [37.5, -122.7]?</div>
+<div>but wait, isn't San Francisco at <em class='pink'>[37.5, -122.7]</em>?</div>
 
 <div>Use <em>geojson</em></div>
 <div>Or... <em>topojson</em> <br><span class='code'> npm install -g topojson</span></div>
@@ -227,12 +195,12 @@ It's terrible</div>
 <div><img src="img/nullisland.png"> (0, 0)</div>
 
 <div>what do I do with this data?</div>
-<div>psst-- don't want a slippy map? go play with d3 <a href='http://bost.ocks.org/mike/map/'>here</a> and <a href='http://bost.ocks.org/mike/bubble-map/'></a>here</div>
+<div>psst-- don't want a slippy map? go play with d3 <a href='http://bost.ocks.org/mike/map/'>here</a> and <a href='http://bost.ocks.org/mike/bubble-map/'>here</a></div>
 
 <div><img src="img/pinterest.png"></div>
 <div><img src='img/osm_busy.png'></div>
-<div><img src="img/github.png"></div>
 <div>1: Commit GeoJSON to Github </div>
+<div><img src="img/github.png"></div>
 <div> 2: Mapbox.com -> Editor -> Drag and drop GeoJSON </div>
 <div><img src="img/editor.gif"></div>
 <div>3: Leaflet.js or Mapbox.js</div>
@@ -277,8 +245,8 @@ It's terrible</div>
  <div>You don't need to remember any of that</div>
  <div>except maybe <em>ESPG 3875</em> (aka 900913) + <em>WGS84</em></div>
  <div>but you'll rarely have to use them, just know they exist and that you want to use <em>ESPG 3875</em></div>
- <div>where might I have to think about projection? <img src="img/add_source.png"></div>
- <div>Side note: there was a protocol <em class='pink'>WMS</em>that could handle <em>any</em> projection. but it went the way of betamax</div>
+ <div><img src="img/add_source.png"></div>
+ <div>Side note: there was a protocol <em class='pink'>WMS</em> that could handle <em>any</em> projection. but it went the way of betamax</div>
 
  <div>Dirty secret, you can make lots of things with tiles</div>
  <div><a href='http://akapadia.s3.amazonaws.com/andromeda/index.html'>andromeda map</a></div>
@@ -287,53 +255,18 @@ It's terrible</div>
 <div>Export your tiles</div>
 <div>Mapbox will host them!</div>
 <div>... if you must run your own map server, I won't tell you how, but look at <br>
-Mapnik (and Node-Mapnik)<br>
-TileCache<br>
-Leaflet/Mapbox.js</div>
+- Mapnik (and Node-Mapnik)<br>
+- TileCache<br>
+- Leaflet/Mapbox.js</div>
 
 <div>Mapnik -- the magic behind the tiles.</div>
 <div><img src='img/Bob_Ross.jpg'></div>
-<div>painter's algorithm: <img src='img/mapnik_order.jpg'></div>
-<div><a href='http://localhost:3000/style/10/542/297@2x.png?id=tmstyle:///Users/camille/dev/MapBox/tm2-custom-styles/pirates-return.tm2&hvhv79hx'></a>png -> json</div>
+<div>painter's algorithm: <img src='img/mapnik_order.png'></div>
+<div><a href='http://localhost:3000/style/10/542/297@2x.png?id=tmstyle:///Users/camille/dev/MapBox/tm2-custom-styles/pirates-return.tm2&hvhv79hx'>png to json</a></div>
 
 <div><img src="img/simple_map.png"></div>
 
-<div><span class='code'>
-  var geojson = [
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-77.03238901390978,38.913188059745586]
-    },
-    "properties": {
-      "title": "Mapbox DC",
-      "description": "1714 14th St NW, Washington DC",
-      "marker-color": "#fc4353",
-      "marker-size": "large",
-      "marker-symbol": "monument"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-122.414, 37.776]
-    },
-    "properties": {
-      "title": "Mapbox SF",
-      "description": "155 9th St, San Francisco",
-      "marker-color": "#fc4353",
-      "marker-size": "large",
-      "marker-symbol": "harbor"
-    }
-  }
-];
-
-L.mapbox.map('map', 'examples.map-i86nkdio')
-  .setView([37.8, -96], 4)
-  .featureLayer.setGeoJSON(geojson);
-</span></div>
+<div><img src='img/map_js.png'></div>
 
 <div><img src='img/mapboxjs.png'></div>
 
@@ -357,5 +290,4 @@ try <em>togeojson</em><br>
 <div><a href='http://localhost:8000/moves_cycling.html'>cycling map</a></div>
 <div><img src="img/cycle_map.png"> </div>
 <div><a href='https://www.mapbox.com/data/'>data as mbtiles</a></div>
-
 
