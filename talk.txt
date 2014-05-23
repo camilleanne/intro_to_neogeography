@@ -1,6 +1,10 @@
 Introduction
 
-- I help organize and run a weekly meetup in San Francisco called Maptime. Our mission is a collaborative learning environment for maps, map technology, and cartographic possibility. It started because my friend and I didn't know anything about how to make maps (this is PM or Pre-Mapbox). We were both working at a data visualization studio, Stamen Design, but weren't familiar with the technology that runs these things. Maptime took off in San Francisco and elsewhere-- there are now Maptimes in 13 cities and we regularly have to enforce a waitlist at Maptime SF.
+- I help organize and run a weekly meetup in San Francisco called Maptime. Our mission is a collaborative learning environment for maps, map technology, and cartographic possibility. 
+
+It started because my friend and I didn't know anything about how to make maps (this is PM or Pre-Mapbox). We were both working at a data visualization studio, Stamen Design, but weren't familiar with the technology that runs these things. 
+
+Maptime took off in San Francisco and elsewhere-- there are now Maptimes in 13 cities and we regularly have to enforce a waitlist at Maptime SF.
 
 - Why is maptime so popular? Why would you want to make a map?
 	- Why? Why make a web map?
@@ -20,19 +24,20 @@ Introduction
 	- open source
 	- It's a lot of fun
 
-- So, back to Maptime. When we say 'collaborative learning environment,' what mean is we're learning together. A lot of people come to Maptime from GIS backgrounds. A minority, like me, come from development into mapping.
-
-- So, this is a quick ride through what I've learned from GIS, geography, and spatial analysis folks about the geo you really need for web mapping. These are the answers to the questions we get asked by developers about GIS, and by GIS people about development. There's a lot of gotchas in making maps-- oddities of abstracting geospatial systems to fit in your browser, so the speak...
+- So, this is a quick ride through the background that I found makes the mapping libraries we have easier to grock. These are the answers to the questions we get asked by developers about GIS, and by GIS people about development. There's a lot of gotchas in making maps-- oddities of abstracting geospatial systems to fit in your browser, so the speak...
 
 - The geography and spatial analysis you need for web maps is nothing like academic or scientific GIS-- so I won't claim to be teaching you geography. Instead there's a term for this, neogeography.
 
-- Neogeography is the citizen science arm of geography. This is a real term, it describes the sort of geography we're contributing to and thinking about when making web maps, editing open street map, and designing beautiful web cartography and data visualizations.
+- Neogeography is the citizen science arm of geography. It describes the sort of geography we're contributing to and thinking about when making web maps, editing open street map, and designing beautiful web cartography and data visualizations.
 
 - So, what is a web map? 
 	- what I mean when I'm talking about a web map is any map displayed in a browser, but I'm going to get even more specific and talk about slippy maps. You know what a slippy map is, it lets you do this.
 	- A web map is:
 		- a base layer
 			- if we're thinking about print maps, the base layer is the physical printed map
+
+			- the data is rendered into it's familiar slippy format on a server somewhere, and then displayed to you client-side with something like Leaflet.js
+
 		- data, content, or feature layers
 			- which are markers, vector layers (polygons, points, lines) anything else that's on top of the map.
 			- these are the pushpins and yarn on your printed base map
@@ -55,19 +60,15 @@ Use GeoJSON, because theoretically it's standardized there. And, if you upload g
 
 Alright, you have data. You pulled it from OSM, you extracted it from Moves, or you got it from some government website (and it's a shapefile) -- what next?
 
-You want a map that looks like this. But you looked at OSM and saw this. And you're like, whoa. that's way too much data.
-
 If you wanted something that looked like this, I got you. Here are 3 ways to do this:
-
-A mapping library grabs the tiles, adds content layer, handles interaction.
-
-Thankfully, there are enough tools out there that we can be pretty agnostic about data format, but you do need to figure out what you want to make. 
-
-Let's briefly return to the slippy map and this concept of a map stack. 
 
 The simplest possible map you can make is loading up an already made, already designed, and already hosted base map and throwing some markers on it. I'll bet half the people in this room have done that at some point with the Google API or maybe even with Leaflet.
 
+A mapping library grabs the tiles, adds content layer, handles interaction.
+
 When many people think of 'making a web map', this is the beginning and end of it. Throw geojson at leaflet and map happens, huzzah! But that's not even a teensy bit of what's going on in the browser as far as the map is concerned. It's not even where most of the data is. Most the data is in the base map. 
+
+You want a map that looks like this. But you looked at OSM and saw this. And you're like, whoa. that's way too much data.
 
 So, you want tilemill, and you want to be write CSS (cartoCSS) to make a map. 
 
@@ -95,12 +96,13 @@ Projections!
 
 A projection is a mathmatical formula you apply to lng/lat coordinates in order to create a flat plane from a sphere.
 
-Don't get excited, we're only going to talk about one type. Spherical web mercator. The awesome thing about web mercator is we all use it! But, the working title of this was 'the good, the bad, and the stuff you can forget', so let's get to the good about this: We all use it. 
-It's 'conformal', which means that circles look like circles, and squares look like squares. It was designed to help sailors navigate across big oceans 450 years ago, and we're still using it. It's great for navigation and routing because at relevant zooms, theings look like you expect. and routing and navigation is a good portion of what we use web maps for. 
-But, Greenland is huge, Africa is comparatively tiny, and technically, the Arctic and Antarctica go North and South, respectively, forever, and we arbitrarily cut it off so we have a square.
-Actually, Norway is probably a lot squishier than say, the US is, but the googlers who came up with the web maps paradigm we know today were in Silicon Valley and they don't care about you.
+Don't get excited, we're only going to talk about one type. Spherical web mercator. The awesome thing about web mercator is we all use it! Also,
 
-We're also pretending the earth is a sphere, and it isn't.
+It's 'conformal', which means that circles look like circles, and squares look like squares. 
+
+It was designed to help sailors navigate across big oceans 450 years ago, and we're still using it. It's great for navigation and routing because at relevant zooms, things look like you expect. and routing and navigation is a good portion of what we use web maps for. 
+
+But, we're also pretending the earth is a sphere, and it isn't. And also, Greenland is huge, Africa is comparatively tiny, and technically, the Arctic and Antarctica go North and South, respectively, forever, and we arbitrarily cut it off so we have a square.
 
 But, we all use it because Google uses it, and it's slightly wrong because it was written by software engineers, and not cartographers. Mathmeticians and software engineers like squares, and like being able to cut things up evenly and make quad trees and stuff.
 

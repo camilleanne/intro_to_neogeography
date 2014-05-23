@@ -8,7 +8,6 @@ body {
   margin:0;
   padding:0;
   font-weight:bold;
-  background-repeat: no-repeat;
 }
 
 h1, h2, h3, p {
@@ -145,7 +144,7 @@ window.onload = function() {
 <div>I make stuff at <em>@mapbox</em></div>
 <div>We make software and tools for people to make beautiful custom maps for web + mobile</div>
 <div>I teach people about maps <em>@maptimesf</em></div>
-<div><img src='img/maptime.gif'></div>
+<div>github.com/maptime + maptime.io<img src='img/maptime.gif'></div>
 <div>why?</div>
 <div>Representation is important</div>
 <div><img src='img/ukraine.png'></div>
@@ -172,22 +171,23 @@ window.onload = function() {
 { 'type': 'Feature', 'properties': { 'SCALERANK': 2, 'NATSCALE': 200, 'LABELRANK': 7, 'FEATURECLA': 'Admin-0 capital', 'NAME': 'Oslo', 'NAMEPAR': null, 'NAMEALT': null, 'DIFFASCII': 0, 'NAMEASCII': 'Oslo', 'ADM0CAP': 1.000000, 'CAPALT': 0.000000, 'CAPIN': null, 'WORLDCITY': 1.000000, 'MEGACITY': 1, 'SOV0NAME': 'Kingdom of Norway', 'SOV_A3': 'NOR', 'ADM0NAME': 'Norway', 'ADM0_A3': 'NOR', <em>'ADM1NAME': 'Oslo'</em>, 'ISO_A2': 'NO', 'NOTE': null, 'LATITUDE': 59.916690, 'LONGITUDE': 10.749979, 'CHANGED': 4.000000, 'NAMEDIFF': 0, 'DIFFNOTE': 'Changed scale rank.', 'POP_MAX': 835000, 'POP_MIN': 580000, 'POP_OTHER': 701804, 'RANK_MAX': 11, 'RANK_MIN': 11, 'GEONAMEID': 3143244.000000, 'MEGANAME': 'Oslo', 'LS_NAME': 'Oslo', 'LS_MATCH': 1, 'CHECKME': 0, 'MAX_POP10': 731563.000000, 'MAX_POP20': 731563.000000, 'MAX_POP50': 762374.000000, 'MAX_POP300': 762374.000000, 'MAX_POP310': 0.000000, 'MAX_NATSCA': 100.000000, 'MIN_AREAKM': 329.000000, 'MAX_AREAKM': 362.000000, 'MIN_AREAMI': 127.000000, 'MAX_AREAMI': 140.000000, 'MIN_PERKM': 340.000000, 'MAX_PERKM': 390.000000, 'MIN_PERMI': 211.000000, 'MAX_PERMI': 243.000000, 'MIN_BBXMIN': 10.333333, 'MAX_BBXMIN': 10.440355, 'MIN_BBXMAX': 11.091667, 'MAX_BBXMAX': 11.091667, 'MIN_BBYMIN': 59.708333, 'MAX_BBYMIN': 59.708333, 'MIN_BBYMAX': 60.066667, 'MAX_BBYMAX': 60.066667, 'MEAN_BBXC': 10.756508, 'MEAN_BBYC': 59.906118, 'COMPARE': 0, 'GN_ASCII': 'Oslo', 'FEATURE_CL': 'P', 'FEATURE_CO': 'PPLC', 'ADMIN1_COD': 12.000000, 'GN_POP': 580000.000000, 'ELEVATION': 0.000000, 'GTOPO30': 11.000000, 'TIMEZONE': 'Europe\/Oslo', 'GEONAMESNO': 'GeoNames match general.', 'UN_FID': 397, 'UN_ADM0': 'Norway', 'UN_LAT': 59.930000, 'UN_LONG': 10.710000, 'POP1950': 468.000000, 'POP1955': 533.000000, 'POP1960': 578.000000, 'POP1965': 610.000000, 'POP1970': 643.000000, 'POP1975': 644.000000, 'POP1980': 643.000000, 'POP1985': 662.000000, 'POP1990': 684.000000, 'POP1995': 729.000000, 'POP2000': 774.000000, 'POP2005': 816.000000, 'POP2010': 835.000000, 'POP2015': 858.000000, 'POP2020': 885.000000, 'POP2025': 909.000000, 'POP2050': 936.000000, 'CITYALT': null }, <em>'geometry': { 'type': 'Point', 'coordinates': [ 10.748033347372314, 59.918636145001869 ] }</em> }
 </div>
 
-<div>regardless of what format your data is, there's a lot of (lat,lon) or (lon,lat) coordinates in there</div>
+<div>regardless of what format your data is, it's just arrays of (lat,lon) or (lon,lat) coordinates</div>
+<div>Thankfully, we've done away with degrees and points in web mapping </div>
+<div><em class='strike-thru'>38° 12'</em><br> for <em>38.2</em></div>
 
 
 <div>[ -122.7324524, 37.9023387 ], [ -122.7324012, 37.9022282 ], [ -122.7323451, 37.9021191 ], [ -122.7322844, 37.9020117 ], [ -122.732219, 37.9019059 ], [ -122.732149, 37.9018021 ], [ -122.7320746, 37.9017002 ], [ -122.7312819, 37.9006205 ], [ -122.731242, 37.9005806 ], [ -122.7312004, 37.9005417 ], [ -122.7311572, 37.900504 ], [ -122.7311124, 37.9004675 ], [ -122.731066, 37.9004322 ], [ -122.7310181, 37.9003982 ], [ -122.7309688, 37.9003655 ], [ -122.7309181, 37.9003341 ], [ -122.7308661, 37.9003042 ], [ -122.7308128, 37.9002756 ], [ -122.7307584, 37.9002484 ], [ -122.7307028, 37.9002229 ], [ -122.7306461, 37.9001988 ], [ -122.7305885, 37.9001763 ], [ -122.7305299, 37.9001553 ], [ -122.7304704, 37.9001359 ], [ -122.7304102, 37.9001181 ], [ -122.7303492, 37.9001019 ], [ -122.7302875, 37.9000875 ], [ -122.7136174, 37.8964147 ], [ -122.7127163, 37.8996543 ], [ -122.7127335, 37.8996637 ], [ -122.7129412, 37.8997974 ], [ -122.7133378, 37.9000575 ], [ -122.7134057, 37.9001333 ], [ -122.712969, 37.9003811 ], [ -122.7039721, 37.9054847 ]</div>
 
-<div>Coordinate order isn't standardized.<br>
-It's terrible</div>
-<div>Thankfully, we've done away with degrees and points in web mapping </div>
-<div><em class='strike-thru'>38° 12'</em><br> for 
-<em>38.2</em></div>
 <div>Latitude goes North to South!<br> it's <em>90 </em>to <em>0</em> to <em>-90</em></div>
 <div>Longitude goes East to West!<br> it's <em class='pink'>180</em> to <em class='pink'>0</em> to <em class='pink'>-180</em> <br> (aka, the long way)</div>
 <div>(Lng, Lat) === (x, y)</div>
 
-<div>Yes. Just use <em>geojson</em></div>
-<div>GeoJSON supports the following geometry types: <span class='code'>Point, LineString, Polygon, MultiPoint, MultiLineString,</span> and <span class='code'>MultiPolygon</span>. Lists of geometries are represented by a <span class='code'>GeometryCollection</span>. Geometries with additional properties are <span class='code'>Feature objects</span>. And lists of features are represented by a <span class='code'>FeatureCollection.</span></div>
+<div>But coordinate order isn't standardized.<br>
+It's terrible</div>
+
+<div>Use <em>geojson</em></div>
+<div>GeoJSON supports the following geometry types: <br>
+  <span class='code'>Point, LineString, Polygon, MultiPoint, MultiLineString,</span> and <span class='code'>MultiPolygon</span>. <br>Lists of geometries are represented by a <span class='code'>GeometryCollection</span>. <br>Geometries with additional properties are <span class='code'>Feature objects</span>. <br>And lists of features are represented by a <span class='code'>FeatureCollection.</span></div>
 <div>it's <em>json</em>, but with more stuff, <em class='pink'>geo</em> stuff.</div>
 <div>Or <em>topojson</em> <br><span class='code'> npm install -g topojson</span></div>
 <div><img src='img/topology.png'><em class='pink'>topology!</em></div>
@@ -199,14 +199,16 @@ It's terrible</div>
 
 <div>what do I do with this data?</div>
 
-<div><img src='img/pinterest.png'></div>
-<div><img src='img/osm_busy.png'></div>
 <div><em class='pink'>1:</em> Commit GeoJSON to Github </div>
 <div><img src='img/github.png'></div>
 <div> <em class='pink'>2:</em> Mapbox.com <em>-></em> Editor <em>-></em> Drag and drop GeoJSON </div>
 <div><img src='img/editor.gif'></div>
 <div><em class='pink'>3:</em> Use a mapping library: Leaflet.js or Mapbox.js</div>
+<div><img src='img/leaflet.png'></div>
+<div><img src='img/mapbox.png'></div>
 <div><img src='img/pinterest.png'></div>
+<div><img src='img/osm_busy.png'></div>
+<div><img src='img/pinterest_oslo.png'></div>
 <div><img src='img/tilemill.png'></div>
 <div><img src='img/tm2.png'></div>
 
@@ -216,19 +218,12 @@ It's terrible</div>
 <div><img src='img/mapquest.jpg'/> <span class='pink white'>the first web maps were pretty static</span> </div>
 <div>the tile: <img class='tilelarge' src='img/tile.png'></div>
 <div>a 256 x 256 square of data <br> <img class='tilelarge' src='img/tile.png'><br> can be a raster (typically png) or vector</div>
-<div>zoom 0: <img class='tilelarge' src='img/tileworld.png'></div>
-<div>zoom 1: <br><img class='tile' src='img/tile-z1-0.png'>
-  <img class='tile' src='img/tile-z1-2.png'><br>
-  <img class='tile' src='img/tile-z1-1.png'>
-  <img class='tile' src='img/tile-z1-3.png'>
-</div>
+<div>zoom 0: <br><img class='tilelarge' src='img/tileworld.png'></div>
+<div>zoom 1: <br><img class='tilelarge' src='img/z2.jpg'><br></div>
 <div>zoom 2: 16 tiles <br><br> zoom 3: 64 tiles <br><br> and so on to x^4</div>
-<div>zoom 17 === 0.003 degrees <br> == 1.193 m /pixel === 1:4,000 scale
+<div>zoom 17 === 0.003 degrees <br> == 1.193 m /pixel === 1:4,000 scale<br>
 <img class='tilelarge' src='img/tile_17_oslo.png'></div>
-<div>the tile coordinate system: z / x / y <br><img class='tile' src='img/grid/tile-z1-0.jpeg'>
-  <img class='tile' src='img/grid/tile-z1-2.jpeg'><br><br><br><br>
-  <img class='tile' src='img/grid/tile-z1-1.jpeg'>
-  <img class='tile' src='img/grid/tile-z1-3.jpeg'>
+<div>the tile coordinate system: z / x / y <br> <br><img class='tilelarge' src='img/tilegrid.jpg'>
 </div>
 <div><span class='code'>b.tiles.mapbox.com/v3/camilleanne.tm2-basemap/<span class='blue'>17</span>/<span class='pink'>69450</span>/<em>38119</em>.png</span>
   <br><img class='tilelarge' id='17_tile' src='img/tile_17_oslo.png'></div>
@@ -247,7 +242,7 @@ It's terrible</div>
  - EPSG CRS code 3857 WGS84/PVPM (CRS code 3785 is deprecated)</div>
  <div>You don't need to remember any of that</div>
  <div>except maybe <em>ESPG 3875</em> (aka 900913) + <em>WGS84</em></div>
- <div>but you'll rarely have to use them, just know they exist and that you want to use <em>ESPG 3875</em></div>
+ <div>but you'll rarely have to use them, <br>just know they exist and that you want to use <em>ESPG 3875</em></div>
  <div><img src='img/add_source.png'></div>
  <div>Side note: there was a protocol <em class='pink'>WMS</em> that could handle <em>any</em> projection. but it went the way of betamax</div>
 
@@ -269,7 +264,7 @@ It's terrible</div>
 <div>painter's algorithm: <img src='img/mapnik_order.png'></div>
 <div><a href='http://localhost:3000/style/10/542/297@2x.png?id=tmstyle:///Users/camille/dev/MapBox/tm2-custom-styles/pirates-return.tm2&hvhv79hx' target='_blank'>png to json</a></div>
 
-<div><img src='img/simple_map.png'></div>
+<div> <img src='img/simple_map.png'></div>
 <div>but wait, if it's (x, y), isn't San Francisco at <em class='pink'>[-122.4376, 37.7577]</em>?</div>
 
 <div><img src='img/map_js.png'></div>
