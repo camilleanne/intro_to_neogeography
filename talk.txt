@@ -1,0 +1,115 @@
+Introduction
+
+- I help organize and run a weekly meetup in San Francisco called Maptime. Our mission is a collaborative learning environment for maps, map technology, and cartographic possibility. It started because my friend and I didn't know anything about how to make maps (this is PM or Pre-Mapbox). We were both working at a data visualization studio, Stamen Design, but weren't familiar with the technology that runs these things. Maptime took off in San Francisco and elsewhere-- there are now Maptimes in 13 cities and we regularly have to enforce a waitlist at Maptime SF.
+
+- Why is maptime so popular? Why would you want to make a map?
+	- Why? Why make a web map?
+	-because representation is important
+		- you know how they say history is written by the victors? Similarly, maps have been made by people who have the power, the data, or the money to call the shots. 
+		- For instance, Google Maps users in Russia (in accordance with local law) see a Russian border delininating Crimea as part of Russia. However, Ukrainian users don't see that border.
+		- Make your own map so you can push your own politics, and so it's relevant to you.
+	- aesthetics
+		- You can make it beautiful
+		- These are some maps made by our designers at Mapbox. These 
+	- control of your data
+		- Open Street Map is awesome. It's the wikipedia of maps, essentially.
+	- cost
+		- Open Street Map data is free, high quality, and constantly improving
+		- There's this awesome tool, Show Me the Way, that lets you watch.
+		- At Mapbox, we use OSM for everything. We even route with it.
+	- open source
+	- It's a lot of fun
+
+- So, back to Maptime. When we say 'collaborative learning environment,' what mean is we're learning together. A lot of people come to Maptime from GIS backgrounds. A minority, like me, come from development into mapping.
+
+- So, this is a quick ride through what I've learned from GIS, geography, and spatial analysis folks about the geo you really need for web mapping. These are the answers to the questions we get asked by developers about GIS, and by GIS people about development. There's a lot of gotchas in making maps-- oddities of abstracting geospatial systems to fit in your browser, so the speak...
+
+- The geography and spatial analysis you need for web maps is nothing like academic or scientific GIS-- so I won't claim to be teaching you geography. Instead there's a term for this, neogeography.
+
+- Neogeography is the citizen science arm of geography. This is a real term, it describes the sort of geography we're contributing to and thinking about when making web maps, editing open street map, and designing beautiful web cartography and data visualizations.
+
+- So, what is a web map? 
+	- what I mean when I'm talking about a web map is any map displayed in a browser, but I'm going to get even more specific and talk about slippy maps. You know what a slippy map is, it lets you do this.
+	- A web map is:
+		- a base layer
+			- if we're thinking about print maps, the base layer is the physical printed map
+		- data, content, or feature layers
+			- which are markers, vector layers (polygons, points, lines) anything else that's on top of the map.
+			- these are the pushpins and yarn on your printed base map
+
+I'll get to what makes a slippy map slippy in a bit, but first, lets talk about data.
+
+Geodata is going to be a point, a line, or a polygon, and then metadata.
+
+So, data. Geodata is just latitude, longitude, and altitude values. Or at least that's all we really need to worry about. This is a teensy weensy slice from an extract of OSM data for San Francisco. This is a slice of a polygon. It's just latitude and longitude in an array or in an object.
+
+Thankfully we've done away with sexagesimal notation, and everything's just a float.
+
+Longitude goes from East to West, from 180 to 0 to -180 degrees. It's the 'long' way. But, better to think of it as x.
+
+So Latitude goes from one pole to the other, from 90 at the North Pole to 0 at the equator and -90 at the South Pole. Better to think of it as y. 
+
+Unfortunately, we haven't standardized whether it's lat, lon, or lon, lat. Historically it was lat, lon, and in GIS it's not even that it's like eastings and northings and stuff, but thankfully the world is full of math nerds and computer scientists who are into cartesian coordinate systems and so most of the time you can assume it's (lng, lat) or (x, y). If you have a value for altitude, it's tacked on at the end -- (lng, lat, alt); 
+
+Use GeoJSON, because theoretically it's standardized there. And, if you upload geojson to github, it'll automatically render a map and it'll diff! Awesome.
+
+Alright, you have data. You pulled it from OSM, you extracted it from Moves, or you got it from some government website (and it's a shapefile) -- what next?
+
+You want a map that looks like this. But you looked at OSM and saw this. And you're like, whoa. that's way too much data.
+
+If you wanted something that looked like this, I got you. Here are 3 ways to do this:
+
+A mapping library grabs the tiles, adds content layer, handles interaction.
+
+Thankfully, there are enough tools out there that we can be pretty agnostic about data format, but you do need to figure out what you want to make. 
+
+Let's briefly return to the slippy map and this concept of a map stack. 
+
+The simplest possible map you can make is loading up an already made, already designed, and already hosted base map and throwing some markers on it. I'll bet half the people in this room have done that at some point with the Google API or maybe even with Leaflet.
+
+When many people think of 'making a web map', this is the beginning and end of it. Throw geojson at leaflet and map happens, huzzah! But that's not even a teensy bit of what's going on in the browser as far as the map is concerned. It's not even where most of the data is. Most the data is in the base map. 
+
+So, you want tilemill, and you want to be write CSS (cartoCSS) to make a map. 
+
+--
+But why do I need an editor like tilemill? Why can't I just manipulate that geodata that I have with js or with normal css? If that's what you want, you probably should go back to d3, but you'll use the capability that allows you to 'travel' with a map. To Zoom and Pan and explore.
+
+So we let's chat quickly about what a slippy map is.
+
+A slippy map is a collection of tiles with clever caching and a coordiante grid that says I am here, load this.
+introduced in 2005 by Google
+
+	- What's good:
+		- Very standardized
+		- 256 x 256 pixel png raster file
+		- it's just image.
+		- or is it? vector tiles
+	- Zoom level 0 is just a single square tile for the world
+	- Zoom 1 is four tiles
+	- Zoom 2 is 16? tiles
+	- with each zoom level, the number of tiles increases exponentially
+	- for a map of the entire world, at zoom level 17, it takes 17 billion tiles.
+	- level 17 === 0.003 degrees == 1.193 m /pixel === 1:4,000 scale
+
+Projections! 
+
+A projection is a mathmatical formula you apply to lng/lat coordinates in order to create a flat plane from a sphere.
+
+Don't get excited, we're only going to talk about one type. Spherical web mercator. The awesome thing about web mercator is we all use it! But, the working title of this was 'the good, the bad, and the stuff you can forget', so let's get to the good about this: We all use it. 
+It's 'conformal', which means that circles look like circles, and squares look like squares. It was designed to help sailors navigate across big oceans 450 years ago, and we're still using it. It's great for navigation and routing because at relevant zooms, theings look like you expect. and routing and navigation is a good portion of what we use web maps for. 
+But, Greenland is huge, Africa is comparatively tiny, and technically, the Arctic and Antarctica go North and South, respectively, forever, and we arbitrarily cut it off so we have a square.
+Actually, Norway is probably a lot squishier than say, the US is, but the googlers who came up with the web maps paradigm we know today were in Silicon Valley and they don't care about you.
+
+We're also pretending the earth is a sphere, and it isn't.
+
+But, we all use it because Google uses it, and it's slightly wrong because it was written by software engineers, and not cartographers. Mathmeticians and software engineers like squares, and like being able to cut things up evenly and make quad trees and stuff.
+
+What can you forget about this? Everything I just said except, 'we all use it,' and ESPG 3875 or 600613.
+
+Quick thought on mapnik: It's the magic behind the tiles. Mapnik is Bob Ross. It takes geodata and paints down in the correct order, all of the features. The roads, the buildings, the rivers, the streams. And then it bakes them into a tile. If it's traditional raster tiles from TileMill, it bakes them before they get to you. If they're vector tiles from TM2, they're baked at the very last minute in the browser, so you can do cool stuff like this.
+
+Anyways, back to data. Because it's data all the way, really.
+
+This is how you add that base map and tiles you just made. Yay, we can write some javascript now!
+
+But wait, if you were paying attention you would've said, I know where San Francisco is, San Francisco is at ~ 37.8 longitude and -122.5 latitude.
