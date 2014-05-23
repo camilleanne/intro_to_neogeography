@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>A Simple Map</title>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+  path { stroke-opacity: 0.7; stroke-width: 6; }
+</style>
+</head>
+<body>
+
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.1.1/leaflet-omnivore.min.js'></script>
+<div id='map'></div>
+<script>
+var map = L.mapbox.map('map', 'camilleanne.2af55995')
+    .setView([38.8935965,-77.014576], 13);
+
+// D3 color scales are a factor of time of day (24 hr day)
+var walkColor = d3.scale.linear()
+    .domain([0, 23])
+    .range(["#FFFB9A", "#FFAB1A"]);
+
+var cycleColor = d3.scale.linear()
+    .domain([0, 23])
+    .range(["#CFA9E8", "#8C3AE8"]);
+
+// add gpx data to map, 
+// extract the time of origin for each trace 
+// and apply color gradient
+var walking = omnivore.gpx('walking_20140512.gpx')
+    .on('ready', function() {
+        for (var key in walking._layers) {
+        	var time = new Date(walking._layers[key].feature.properties.time);
+        	var hour = time.getHours();
+        	var minute = time.getMinutes();
+        	walking._layers[key].setStyle({color: walkColor(hour + ((minute/60) /1))});
+        }
+    })
+.addTo(map);
+
+var cycling = omnivore.gpx('cycling_20140512.gpx')
+    .on('ready', function() {
+        for (var key in cycling._layers) {
+        	var time = new Date(cycling._layers[key].feature.properties.time);
+        	var hour = time.getHours();
+        	var minute = time.getMinutes();
+        	cycling._layers[key].setStyle({color: cycleColor(hour + ((minute/60) /1))});
+        }
+    })
+.addTo(map);
+
+</script>
+</body>
+</html>

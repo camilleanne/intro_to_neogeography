@@ -2,4 +2,8 @@
 
 warning, that img folder is sorta large. blame gifs.
 
-open `webrebels.html` in browser
+open `index.html` in browser
+
+### for demo:
+run `python -m SimpleHTTPServer`
+`open http://localhost:8000/demo/moves.html`
