@@ -8,6 +8,7 @@ body {
   margin:0;
   padding:0;
   font-weight:bold;
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3, p {
@@ -32,8 +33,8 @@ img {
   font-family: 'courier';
   font-size: 70%;
 }
-.invert {
-  color: black;
+.white {
+  background-color: white;
 }
 .tile {
   float: left;
@@ -135,15 +136,14 @@ window.onload = function() {
 };
 </script></head>
 <body>
+<div><h2>I am Camille. </h2><br> <em> @fulgenteft</em></div>
+<div> These slides are here: <em class='pink'>camilleanne.github.io/intro_to_neogeography</em></div>
 
 <div><em class='pink'>Geography for Web Maps</em> </div>
 <div>The Good, The Bad, and the Stuff You Can Forget</div>
 <div>aka, <br>Intro to Neogeography</div>
-<div><h2>I am Camille. </h2><br> <em> @fulgenteft</em></div>
-<div> These slides are here: <em class='pink'>camilleanne.github.io/intro_to_neogeography</em></div>
 <div>I make stuff at <em>@mapbox</em></div>
 <div>We make software and tools for people to make beautiful custom maps for web + mobile</div>
-<!--SHOW THREE SLIDES OF IMAGES -->
 <div>I teach people about maps <em>@maptimesf</em></div>
 <div><img src='img/maptime.gif'></div>
 <div>why?</div>
@@ -213,7 +213,7 @@ It's terrible</div>
 <div><a href='http://localhost:3000' target='_blank'>tm2</a></div>
 <div>but why do I need an editor like tm2?</div>
 
-<div><img src='img/mapquest.jpg'/> <span class='blue'>the first web maps were pretty static</span> </div>
+<div><img src='img/mapquest.jpg'/> <span class='pink white'>the first web maps were pretty static</span> </div>
 <div>the tile: <img class='tilelarge' src='img/tile.png'></div>
 <div>a 256 x 256 square of data <br> <img class='tilelarge' src='img/tile.png'><br> can be a raster (typically png) or vector</div>
 <div>zoom 0: <img class='tilelarge' src='img/tileworld.png'></div>
@@ -240,7 +240,7 @@ It's terrible</div>
 <div><img src='img/projections/Mollweide_projection_SW.jpg'></div>
 <div>but don't get too excited, web maps all use the same projection</div>
 <div><img src='img/Tissot_mercator.png'>web mercator.</div>
-<div><img src='img/Cylindrical_Projection.png'></div>
+<div><img src='img/Cylindrical_Projection.jpg'></div>
 <div> Web Mercator is the mapping of:<br>
 -  WGS84 datum (i.e. ellipsoidal) latitude / longitude into Easting / Northing using spherical Mercator equations (where R = a)<br>
 - EPSG coordinate operation method code 1024 (Popular Visualization Pseudo Mercator, PVPM)<br>
@@ -251,7 +251,7 @@ It's terrible</div>
  <div><img src='img/add_source.png'></div>
  <div>Side note: there was a protocol <em class='pink'>WMS</em> that could handle <em>any</em> projection. but it went the way of betamax</div>
 
- <div>Dirty secret, you can make lots of things with tiles</div>
+ <div>Also, a secret, you can make lots of things with tiles</div>
  <div><a href='http://akapadia.s3.amazonaws.com/andromeda/index.html' target='_blank'>andromeda map</a></div>
 
  <div>psst-- want to play with projection? go play with d3 <a href='http://bost.ocks.org/mike/map/' target='_blank'>here</a> and <a href='http://bost.ocks.org/mike/bubble-map/' target='_blank'>here</a></div>
