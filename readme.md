@@ -2,6 +2,8 @@
 
 warning, that img folder is sorta large. blame gifs.
 
+built with [big](https://github.com/tmcw/big)
+
 open `index.html` in browser
 
 ### for demo:
