@@ -186,7 +186,7 @@ It's terrible</div>
 <div>Longitude goes East to West!<br> it's <em class='pink'>180</em> to <em class='pink'>0</em> to <em class='pink'>-180</em> <br> (aka, the long way)</div>
 <div>(Lng, Lat) === (x, y)</div>
 
-<div>but wait, if it's (x, y), isn't San Francisco at <em class='pink'>[37.5, -122.7]</em>?</div>
+<div>but wait, if it's (x, y), isn't San Francisco at <em class='pink'>[-122.4376, 37.7577]</em>?</div>
 
 <div>Yes. Just use <em>geojson</em></div>
 <div>GeoJSON supports the following geometry types: <span class='code'>Point, LineString, Polygon, MultiPoint, MultiLineString,</span> and <span class='code'>MultiPolygon</span>. Lists of geometries are represented by a <span class='code'>GeometryCollection</span>. Geometries with additional properties are <span class='code'>Feature objects</span>. And lists of features are represented by a <span class='code'>FeatureCollection.</span></div>
@@ -199,13 +199,7 @@ It's terrible</div>
 <div><img src='img/null_island.jpg'>Quick trip to Null Island</div>
 <div><img src='img/nullisland.png'> (0, 0)</div>
 
-<div>Other sources of data: <br>
-- Natural Earth <br>
-- Metro Extracts (city extracts of OSM)<br>
-</div>
-
 <div>what do I do with this data?</div>
-<div>psst-- don't want a slippy map? go play with d3 <a href='http://bost.ocks.org/mike/map/'>here</a> and <a href='http://bost.ocks.org/mike/bubble-map/'>here</a></div>
 
 <div><img src='img/pinterest.png'></div>
 <div><img src='img/osm_busy.png'></div>
@@ -213,7 +207,7 @@ It's terrible</div>
 <div><img src='img/github.png'></div>
 <div> <em class='pink'>2:</em> Mapbox.com <em>-></em> Editor <em>-></em> Drag and drop GeoJSON </div>
 <div><img src='img/editor.gif'></div>
-<div><em class='pink'>3:</em> Leaflet.js or Mapbox.js</div>
+<div><em class='pink'>3:</em> Use a mapping library: Leaflet.js or Mapbox.js</div>
 <div><img src='img/pinterest.png'></div>
 <div><img src='img/tilemill.png'></div>
 <div><img src='img/tm2.png'></div>
@@ -248,7 +242,7 @@ It's terrible</div>
 <div><img src='img/projections/Mollweide_projection_SW.jpg'></div>
 <div>but don't get too excited, web maps all use the same projection</div>
 <div><img src='img/Tissot_mercator.png'>web mercator.</div>
-<div><img src='Cylindrical_Projection.png'></div>
+<div><img src='img/Cylindrical_Projection.png'></div>
 <div> Web Mercator is the mapping of:<br>
 -  WGS84 datum (i.e. ellipsoidal) latitude / longitude into Easting / Northing using spherical Mercator equations (where R = a)<br>
 - EPSG coordinate operation method code 1024 (Popular Visualization Pseudo Mercator, PVPM)<br>
@@ -262,12 +256,14 @@ It's terrible</div>
  <div>Dirty secret, you can make lots of things with tiles</div>
  <div><a href='http://akapadia.s3.amazonaws.com/andromeda/index.html'>andromeda map</a></div>
 
+ <div>psst-- want to play with projection? go play with d3 <a href='http://bost.ocks.org/mike/map/'>here</a> and <a href='http://bost.ocks.org/mike/bubble-map/'>here</a></div>
+
 <div>back to tilemill. </div>
 <div>Export your tiles</div>
 <div>Mapbox will host them!</div>
 <div>... if you must run your own tile server, I won't tell you how, but look at: <br>
 - Mapnik (and Node-Mapnik)<br>
-- TileCache<br>
+- TileCache
 </div>
 
 <div>Mapnik -- the magic behind the tiles.</div>
@@ -298,6 +294,8 @@ try <em>togeojson</em><br>
 <div><span class='code'> 
   var layer = omnivore.gpx('a.gpx').addTo(map);
   </span></div>
+<div>need more than conversion? need GIS software? <br>
+<em> QGIS!</em></div>
 <div><a href='http://localhost:8000/moves_cycling.html'>cycling map</a></div>
 <div><img src='img/cycle_map.png'> </div>
 <div><a href='https://www.mapbox.com/data/'>data as mbtiles</a></div>
