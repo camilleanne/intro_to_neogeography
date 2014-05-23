@@ -75,8 +75,6 @@ So, you want tilemill, and you want to be write CSS (cartoCSS) to make a map.
 --
 But why do I need an editor like tilemill? Why can't I just manipulate that geodata that I have with js or with normal css? If that's what you want, you probably should go back to d3, but you'll use the capability that allows you to 'travel' with a map. To Zoom and Pan and explore.
 
-So we let's chat quickly about what a slippy map is.
-
 A slippy map is a collection of tiles with clever caching and a coordiante grid that says I am here, load this.
 introduced in 2005 by Google
 
